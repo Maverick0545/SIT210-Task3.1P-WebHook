@@ -1,0 +1,26 @@
+#define DHT_PIN D2
+
+
+#define DELAY_TIME 300
+
+
+
+double Light;
+
+void setup()
+{
+    pinMode(DHT_PIN, INPUT);
+    Serial.begin(9600);
+  
+    
+
+}
+
+void loop() 
+{
+    Light = analogRead(DHT_PIN);
+    
+    Particle.publish("Light", String(Light), PRIVATE);
+    delay(DELAY_TIME);
+    
+}
